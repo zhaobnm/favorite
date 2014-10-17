@@ -2,6 +2,7 @@ execute pathogen#infect()
 set autoindent
 nmap<A-up> :m.-2<CR>
 nmap<A-down> :m.1<CR>
+map<C-w> <Esc>:wq!<CR>
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
