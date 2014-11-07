@@ -3,6 +3,10 @@ set autoindent
 nmap<A-up> :m.-2<CR>
 nmap<A-down> :m.1<CR>
 map<C-w> <Esc>:wq!<CR>
+imap<C-w> <Esc>:wq!<CR>
+imap<Home> <Esc>^i
+map<Home> ^
+set cursorline
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
