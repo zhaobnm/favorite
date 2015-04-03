@@ -6,6 +6,16 @@ map<C-w> <Esc>:wq!<CR>
 imap<C-w> <Esc>:wq!<CR>
 imap<Home> <Esc>^i
 map<Home> ^
+map<C-e> :NERDTreeToggle<CR>
+map<C-n> :cnext<CR>
+map<C-u> <Esc>:set fileencoding=utf-8<CR>:w<CR>
+
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let g:miniBufExplMaxSize = 1
+let g:miniBufExplSortBy = "mru"
+
+
 set cursorline
 
 set nocompatible
