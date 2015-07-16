@@ -409,6 +409,7 @@ augroup END
 
 function! <SID>VimEnterHandler()
   call <SID>DEBUG('Entering VimEnter Handler', 10)
+  exec ':stopi'
 
   " Build initial MRUList.
   " This makes sure all the files specified on the command
