@@ -1,0 +1,10 @@
+map<C-C> "+y
+imap<C-C> <Esc>"+ya
+map<C-V> "+P
+imap<C-V> <ESC>"+pa
+map<C-W> <ESC>:wq<CR>
+imap<C-W> <ESC>:wq<CR>
+map<C-S> <ESC>:w<CR>
+imap<C-S> <ESC>:w<CR>
+nmap<A-up> :m-2<CR>
+nmap<A-down> :m+1<CR>
