@@ -1,0 +1,216 @@
+#	$OpenBSD: ssh_config,v 1.33 2017/05/07 23:12:57 djm Exp $
+
+# This is the ssh client system-wide configuration file.  See
+# ssh_config(5) for more information.  This file provides defaults for
+# users, and the values can be changed in per-user configuration files
+# or on the command line.
+
+# Configuration data is parsed as follows:
+#  1. command line options
+#  2. user-specific file
+#  3. system-wide file
+# Any configuration value is only changed the first time it is set.
+# Thus, host-specific definitions should be at the beginning of the
+# configuration file, and defaults at the end.
+
+# Site-wide defaults for some commonly used options.  For a comprehensive
+# list of available options, their meanings and defaults, please see the
+# ssh_config(5) man page.
+#
+Host hwk8s1
+    HostName 192.168.0.49
+    User root
+    Port 22
+    ProxyCommand ssh -A -q hwconf1 -W %h:%p
+
+Host hwsw2
+    HostName 192.168.0.194
+    User chiz
+    Port 10022
+    ProxyCommand ssh -A -q hwconf1 -W %h:%p
+
+Host hwsw1
+    HostName 192.168.0.241
+    User chiz
+    Port 10022
+    ProxyCommand ssh -A -q hwconf1 -W %h:%p
+Host hwconf2
+    HostName 124.70.186.119
+    User chiz
+    Port 10022
+
+
+
+Host hwconf1
+    HostName 119.3.152.254
+    User chiz
+    Port 10022
+
+Host ygsw1
+    HostName 172.16.145.252
+    Port 10022
+    user chiz
+    ProxyCommand ssh -A -q ygdev -W %h:%p
+
+Host ygsb1
+    HostName 172.16.145.231
+    Port 10022
+    user chiz
+    ProxyCommand ssh -A -q ygdev -W %h:%p
+
+Host ytest
+    HostName 172.16.145.252
+    Port 10022
+    user chiz
+    ProxyCommand ssh -A -q blj -W %h:%p
+
+Host ydtest
+    HostName 172.16.100.194
+    Port 10022
+    user chiz
+    ProxyCommand ssh -A -q blj -W %h:%p
+
+
+Host blj
+   HostName kojwtcdojq-public.bastionhost.aliyuncs.com
+   Port 60022
+   user zhaochi
+
+Host dev1
+    HostName 121.196.190.85
+    Port 10022
+
+Host sp2
+  HostName 121.40.192.25
+  port 10022
+
+Host dev
+    HostName 116.62.61.78
+    port 10022
+Host test
+    HostName 47.97.5.12
+    port 10022
+
+Host w1 b.plaso.cn
+    HostName 192.168.0.149
+    port 10022
+    ProxyCommand ssh -q -W %h:%p sp2
+Host sw1
+    HostName 192.168.5.165
+    port 10022
+    ProxyCommand ssh -q -W %h:%p sp2
+
+Host repo
+    HostName 118.31.127.82
+    port 10022
+
+Host sw2
+    HostName 192.168.5.218
+    port 10022
+    ProxyCommand ssh -q -W %h:%p sp2
+
+Host sw3
+    HostName 192.168.5.5
+    port 10022
+    ProxyCommand ssh -q -W %h:%p sp2
+
+Host swx
+    HostName 192.168.10.230
+    port 10022
+    ProxyCommand ssh -q -W %h:%p sp2
+Host swx1
+    HostName 192.168.5.17
+    port 10022
+    ProxyCommand ssh -q -W %h:%p sp2
+
+
+
+Host k8s1
+    HostName 192.168.201.162
+    user root
+    port 22
+    ProxyCommand ssh -q -W %h:%p sp2
+Host k8s2
+    HostName 192.168.202.12
+    user root
+    port 22
+    ProxyCommand ssh -q -W %h:%p sp2
+Host k8s-97
+    HostName 192.168.200.97
+    user root
+    port 22
+    ProxyCommand ssh -q -W %h:%p sp2
+
+
+
+Host hwdevconf1
+    HostName 124.71.136.177
+    port 10022
+
+Host hwdev
+    HostName 121.36.195.177
+    port 22
+
+Host fdyh fdhy
+    HostName 116.62.146.87
+    Port 22
+
+Host ygdevconf1
+    HostName 118.178.124.247
+    Port 10022 
+Host ygtestconf1
+    HostName 47.96.235.186
+    Port 10022 
+Host ygdev
+    HostName 116.62.181.233
+    Port 10022 
+Host ygtest
+    HostName 47.98.36.90
+    Port 10022 
+
+Host ygsp1
+    HostName 116.62.78.112
+    Port 10022 
+
+Host ygsb1
+   HostName 47.98.47.162
+    Port 10022 
+
+Host *.plaso.cn *.eduyun.cn
+    Port 10022 
+
+Host 123
+    HostName 192.168.1.123
+    User zhaobnm
+    Port 10022 
+
+Host *
+    TCPKeepAlive=yes
+    ServerAliveInterval 60
+    User chiz
+    Port 22 
+#   ForwardAgent no
+#   ForwardX11 no
+#   PasswordAuthentication yes
+#   HostbasedAuthentication no
+#   GSSAPIAuthentication no
+#   GSSAPIDelegateCredentials no
+#   BatchMode no
+#   CheckHostIP yes
+#   AddressFamily any
+#   ConnectTimeout 0
+    StrictHostKeyChecking no 
+#   IdentityFile ~/.ssh/id_dsa
+#   IdentityFile ~/.ssh/id_ecdsa
+#   IdentityFile ~/.ssh/id_ed25519
+#   Port 10022
+#   Protocol 2
+    Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes256-cbc,aes192-cbc
+#   MACs hmac-md5,hmac-sha1,umac-64@openssh.com
+#   EscapeChar ~
+#   Tunnel no
+#   TunnelDevice any:any
+#   PermitLocalCommand no
+#   VisualHostKey no
+#   ProxyCommand ssh -q -W %h:%p gateway.example.com
+#   RekeyLimit 1G 1h
