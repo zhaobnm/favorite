@@ -115,7 +115,7 @@ Host sw3
     ProxyCommand ssh -q -W %h:%p sp2
 
 Host swx
-    HostName 192.168.10.230
+    HostName 192.168.10.231
     port 10022
     ProxyCommand ssh -q -W %h:%p sp2
 Host swx1

@@ -1,2 +1,5 @@
 cp ~/.ssh/config ssh/
-cp -r ~/.vim* vim/
+cp -r ~/.vimrc vim/
+cp ~/.zshrc env/
+cp ~/.bashrc env/
+cp ~/.gitconfig env/
