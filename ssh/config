@@ -80,6 +80,10 @@ Host dev1
     HostName 121.196.190.85
     Port 10022
 
+Host sb1
+  HostName sb1.plaso.cn
+  port 10022
+
 Host sp2
   HostName 121.40.192.25
   port 10022
