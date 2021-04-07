@@ -17,34 +17,31 @@
 # list of available options, their meanings and defaults, please see the
 # ssh_config(5) man page.
 #
-Host ttmy
-  HostName 39.98.179.247
+Host ttmy3
+  HostName 192.168.20.149
   User root
   Port 22
+  ProxyCommand ssh -A -q ttmydev -W %h:%p
+
+Host ttmy2
+  HostName 192.168.20.148
+  User root
+  Port 22
+  ProxyCommand ssh -A -q ttmydev -W %h:%p
+
+Host ttmy1
+  HostName 192.168.20.147
+  User root
+  Port 22
+  ProxyCommand ssh -A -q ttmydev -W %h:%p
+
 Host ttmydev
-  HostName 39.98.166.216
+  HostName 39.98.94.57
   User root
   Port 22
-
-Host hwk8s1
-    HostName 192.168.0.101
-    User root
-    Port 22
-    ProxyCommand ssh -A -q hwsw1 -W %h:%p
-
-Host hwsw2
-    HostName 192.168.0.194
-    User chiz
-    Port 10022
-    ProxyCommand ssh -A -q hwsw1 -W %h:%p
 
 Host hwsw1
     HostName 124.70.192.136
-    User chiz
-    Port 10022
-
-Host hwconf1
-    HostName 119.3.152.254
     User chiz
     Port 10022
 
@@ -59,9 +56,17 @@ Host blj
    Port 60022
    user zhaochi
 
-Host dev1
-  HostName 121.196.190.85
+Host log
+  HostName 192.168.18.52
+  User chiz
+  Port 22
+  ProxyCommand ssh -q -W %h:%p dev
+
+Host version
+  HostName 192.168.14.22
+  User chiz
   Port 10022
+  ProxyCommand ssh -q -W %h:%p dev
 
 Host sb1
   HostName sb1.plaso.cn
@@ -75,21 +80,21 @@ Host dev
     HostName 116.62.61.78
     port 10022
 
+Host ndev
+  HostName 120.55.3.51
+  user chiz
+  port 10022
+
 Host test
   HostName 47.99.197.65
   user chiz
   port 10022
 
-Host nk8s1
-  HostName 172.16.1.205
-  port 22
-  user root
-  ProxyCommand ssh -q -W %h:%p test
-
 Host w1 b.plaso.cn
     HostName 192.168.0.149
     port 10022
     ProxyCommand ssh -q -W %h:%p sp2
+
 Host sw1
     HostName 192.168.5.165
     port 10022
@@ -104,40 +109,6 @@ Host sw2
     port 10022
     ProxyCommand ssh -q -W %h:%p sp2
 
-Host sw3
-    HostName 192.168.5.5
-    port 10022
-    ProxyCommand ssh -q -W %h:%p sp2
-
-Host zhibo
-  HostName 192.168.15.235
-  port 10022
-  ProxyCommand ssh -q -W %h:%p sp2
-
-
-Host swx
-  HostName 192.168.10.247
-  port 10022
-  ProxyCommand ssh -q -W %h:%p sp2
-
-Host k8s1
-    HostName 192.168.201.162
-    user root
-    port 22
-    ProxyCommand ssh -q -W %h:%p sp2
-Host k8s2
-    HostName 192.168.202.12
-    user root
-    port 22
-    ProxyCommand ssh -q -W %h:%p sp2
-Host k8s-97
-    HostName 192.168.200.97
-    user root
-    port 22
-    ProxyCommand ssh -q -W %h:%p sp2
-
-
-
 Host hwdevconf1
     HostName 124.71.136.177
     port 10022
@@ -151,6 +122,11 @@ Host fdyh fdhy
     Port 22
 
 Host *.plaso.cn *.eduyun.cn
+    Port 10022 
+
+Host android
+    HostName 101.37.39.196
+    User root
     Port 10022 
 
 Host 123
